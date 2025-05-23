@@ -1,0 +1,12 @@
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Domain\bin\Debug\net8.0\StartUp.Domain.deps.json
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Domain\bin\Debug\net8.0\StartUp.Domain.dll
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Domain\bin\Debug\net8.0\StartUp.Domain.pdb
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Domain\obj\Debug\net8.0\StartUp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Domain\obj\Debug\net8.0\StartUp.Domain.AssemblyInfoInputs.cache
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Domain\obj\Debug\net8.0\StartUp.Domain.AssemblyInfo.cs
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Domain\obj\Debug\net8.0\StartUp.Domain.csproj.CoreCompileInputs.cache
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Domain\obj\Debug\net8.0\StartUp.Domain.dll
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Domain\obj\Debug\net8.0\refint\StartUp.Domain.dll
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Domain\obj\Debug\net8.0\StartUp.Domain.pdb
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Domain\obj\Debug\net8.0\ref\StartUp.Domain.dll
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Domain\obj\Debug\net8.0\StartUp.Domain.csproj.AssemblyReference.cache

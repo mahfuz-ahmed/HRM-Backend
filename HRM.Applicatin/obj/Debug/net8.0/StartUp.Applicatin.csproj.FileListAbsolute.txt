@@ -1,0 +1,17 @@
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Applicatin\bin\Debug\net8.0\StartUp.Applicatin.deps.json
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Applicatin\bin\Debug\net8.0\StartUp.Applicatin.dll
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Applicatin\bin\Debug\net8.0\StartUp.Applicatin.pdb
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Applicatin\obj\Debug\net8.0\StartUp.Applicatin.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Applicatin\obj\Debug\net8.0\StartUp.Applicatin.AssemblyInfoInputs.cache
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Applicatin\obj\Debug\net8.0\StartUp.Applicatin.AssemblyInfo.cs
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Applicatin\obj\Debug\net8.0\StartUp.Applicatin.csproj.CoreCompileInputs.cache
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Applicatin\obj\Debug\net8.0\StartUp.Applicatin.dll
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Applicatin\obj\Debug\net8.0\refint\StartUp.Applicatin.dll
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Applicatin\obj\Debug\net8.0\StartUp.Applicatin.pdb
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Applicatin\obj\Debug\net8.0\ref\StartUp.Applicatin.dll
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Applicatin\bin\Debug\net8.0\StartUp.Contracts.dll
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Applicatin\bin\Debug\net8.0\StartUp.Domain.dll
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Applicatin\bin\Debug\net8.0\StartUp.Contracts.pdb
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Applicatin\bin\Debug\net8.0\StartUp.Domain.pdb
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Applicatin\obj\Debug\net8.0\StartUp.Applicatin.csproj.AssemblyReference.cache
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Applicatin\obj\Debug\net8.0\StartUp..C662D298.Up2Date

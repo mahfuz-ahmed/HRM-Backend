@@ -1,0 +1,15 @@
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Contracts\bin\Debug\net8.0\StartUp.Contracts.deps.json
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Contracts\bin\Debug\net8.0\StartUp.Contracts.dll
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Contracts\bin\Debug\net8.0\StartUp.Contracts.pdb
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Contracts\obj\Debug\net8.0\StartUp.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Contracts\obj\Debug\net8.0\StartUp.Contracts.AssemblyInfoInputs.cache
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Contracts\obj\Debug\net8.0\StartUp.Contracts.AssemblyInfo.cs
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Contracts\obj\Debug\net8.0\StartUp.Contracts.csproj.CoreCompileInputs.cache
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Contracts\obj\Debug\net8.0\StartUp.Contracts.dll
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Contracts\obj\Debug\net8.0\refint\StartUp.Contracts.dll
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Contracts\obj\Debug\net8.0\StartUp.Contracts.pdb
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Contracts\obj\Debug\net8.0\ref\StartUp.Contracts.dll
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Contracts\bin\Debug\net8.0\StartUp.Domain.dll
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Contracts\bin\Debug\net8.0\StartUp.Domain.pdb
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Contracts\obj\Debug\net8.0\StartUp.Contracts.csproj.AssemblyReference.cache
+D:\ASP.NET\MyProjects\StartUpProject\StartUpProject\StartUp.Contracts\obj\Debug\net8.0\StartUp..9CDEB18F.Up2Date
