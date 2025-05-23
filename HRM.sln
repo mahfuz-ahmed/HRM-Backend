@@ -14,9 +14,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRM.Infrastructure", "HRM.Infrastructure\HRM.Infrastructure.csproj", "{D8F11465-B251-49EA-834F-8F2ECED70124}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{55408AD1-57A3-4055-AE86-B36CA80597B2}"
-	ProjectSection(SolutionItems) = preProject
-		.gitegnore = .gitegnore
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8138E90B-1DE8-43D9-AE2B-375E288BFC58}"
 EndProject

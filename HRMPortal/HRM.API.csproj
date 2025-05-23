@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <Folder Include="Controllers\Authentication\" />
+    <Folder Include="Controllers\HRM\New Folder\" />
     <Folder Include="Controllers\Security\" />
   </ItemGroup>
 
