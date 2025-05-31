@@ -73,5 +73,10 @@ namespace HRM.Infrastructure
         //{
         //    return await dbContext.EmployeeAttendance.Where(x => x.HolidayName == name).ToListAsync();
         //}
+
+        public void ConflictMethod()
+        {
+
+        }
     }
 }
