@@ -82,6 +82,16 @@ namespace HRM.Infrastructure
         public void ConflictMethod2()
         {
 
+        public class Demo
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+        }
+
+        public class demo2
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
         }
     }
 }
