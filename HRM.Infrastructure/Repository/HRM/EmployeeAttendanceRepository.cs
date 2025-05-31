@@ -74,6 +74,14 @@ namespace HRM.Infrastructure
         //    return await dbContext.EmployeeAttendance.Where(x => x.HolidayName == name).ToListAsync();
         //}
 
+        public void ConflictMethod()
+        {
+
+        }
+
+        public void ConflictMethod2()
+        {
+
         public class Demo
         {
             public int Id { get; set; }
