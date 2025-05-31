@@ -59,6 +59,16 @@ namespace HRM.Infrastructure
             return await dbContext.EmployeeAttendance.ToListAsync();
         }
 
+        public Task<EmployeeAttendance> UpdateEmployeeAttendanceAsync(int employeeAttendanceId, EmployeeAttendance employeeAttendance)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<EmployeeAttendance>> GetEmployeeAttendanceByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
         //public async Task<List<EmployeeAttendance>> GetEmployeeAttendanceByName(string name)
         //{
         //    return await dbContext.EmployeeAttendance.Where(x => x.HolidayName == name).ToListAsync();
