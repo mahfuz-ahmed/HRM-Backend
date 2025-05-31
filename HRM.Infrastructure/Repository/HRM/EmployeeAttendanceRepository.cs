@@ -73,5 +73,11 @@ namespace HRM.Infrastructure
         //{
         //    return await dbContext.EmployeeAttendance.Where(x => x.HolidayName == name).ToListAsync();
         //}
+
+        public class Demo
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+        }
     }
 }
