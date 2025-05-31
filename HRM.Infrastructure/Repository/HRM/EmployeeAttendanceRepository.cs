@@ -79,5 +79,11 @@ namespace HRM.Infrastructure
             public int Id { get; set; }
             public string Name { get; set; }
         }
+
+        public class demo2
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+        }
     }
 }
