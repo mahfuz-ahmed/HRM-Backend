@@ -78,5 +78,10 @@ namespace HRM.Infrastructure
         {
 
         }
+
+        public void ConflictMethod2()
+        {
+
+        }
     }
 }
