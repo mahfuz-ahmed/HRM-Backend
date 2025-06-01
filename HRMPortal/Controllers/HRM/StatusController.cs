@@ -20,7 +20,7 @@ namespace HRM.API.Controllers.HRM
         public async Task<IActionResult> AddStatusAsync([FromBody] Status status)
         {
             AddStatusCommand command = new AddStatusCommand(status);
-
+            
             var result = await _sender.Send(new AddStatusCommand(status));
 
             return Ok(result);
