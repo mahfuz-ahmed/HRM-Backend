@@ -5,38 +5,20 @@ namespace HRM.Domain
     public class EmployeeAttendance
     {
         public int ID { get; set; }
-
         public int EmployeeId { get; set; }
-
-        public int AttendanceStatusID { get; set; }
-
-        public DateTime AttendanceDate { get; set; }
-
-        public DateTime CheckIn { get; set; }
-
-        public DateTime CheckOut { get; set; }
-        
-        public int Late { get; set; }
-
-        public int Break { get; set; }
-
-        public int ProductionHours { get; set; }
-
-        public bool IsAdmin { get; set; }
-
-        // Audit fields
-        public required int EntryUseID { get; set; }
-
-        public required DateTime EntryDate { get; set; }
-
-        public int? UpdateUserID { get; set; }
-
-        public DateTime? UpdateDate { get; set; }
-
-        [JsonIgnore]
-        public AttendanceStatus? AttendanceStatus { get; set; }
-
-        [JsonIgnore]
         public Employee? Employee { get; set; }
+        public int AttendanceStatusID { get; set; }
+        public AttendanceStatus? AttendanceStatus { get; set; }
+        public DateTime AttendanceDate { get; set; }
+        public DateTime CheckIn { get; set; }
+        public DateTime CheckOut { get; set; }        
+        public int Late { get; set; }
+        public int Break { get; set; }
+        public int ProductionHours { get; set; }
+        public bool IsAdmin { get; set; }
+        public required int EntryUseID { get; set; }
+        public required DateTime EntryDate { get; set; }
+        public int? UpdateUserID { get; set; }
+        public DateTime? UpdateDate { get; set; }
     }
 }

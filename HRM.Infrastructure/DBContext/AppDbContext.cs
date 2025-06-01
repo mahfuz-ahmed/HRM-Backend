@@ -9,6 +9,7 @@ namespace HRM.Infrastructure
         {
         }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<EmployeeDetail> EmployeeDetails { get; set; }
         public DbSet<Department> Department { get; set; }
         public DbSet<Holidays> Holidays { get; set; }
         public DbSet<Designation> Designation { get; set; }

@@ -24,7 +24,7 @@ namespace HRM.Infrastructure
                 updateEmployee.IsActive = employee.IsActive;
                 updateEmployee.IsAdmin = employee.IsAdmin;
                 updateEmployee.JoinDate = employee.JoinDate;
-                updateEmployee.EntryUseID = employee.EntryUseID;
+                updateEmployee.EntryUserID = employee.EntryUserID;
                 updateEmployee.EntryDate = employee.EntryDate;
                 updateEmployee.UpdateUserID = employee.UpdateUserID;
                 updateEmployee.UpdateDate = employee.UpdateDate;
