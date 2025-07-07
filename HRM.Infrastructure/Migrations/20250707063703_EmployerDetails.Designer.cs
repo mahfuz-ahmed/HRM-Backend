@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HRM.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250601193847_FixCascadeError")]
-    partial class FixCascadeError
+    [Migration("20250707063703_EmployerDetails")]
+    partial class EmployerDetails
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -326,7 +326,7 @@ namespace HRM.Infrastructure.Migrations
                     b.ToTable("EmployeeAttendance");
                 });
 
-            modelBuilder.Entity("HRM.Domain.EmployeeDetail", b =>
+            modelBuilder.Entity("HRM.Domain.EmployeeDetails", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -651,7 +651,7 @@ namespace HRM.Infrastructure.Migrations
                     b.Navigation("Employee");
                 });
 
-            modelBuilder.Entity("HRM.Domain.EmployeeDetail", b =>
+            modelBuilder.Entity("HRM.Domain.EmployeeDetails", b =>
                 {
                     b.HasOne("HRM.Domain.Department", "Department")
                         .WithMany()

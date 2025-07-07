@@ -13,7 +13,7 @@ namespace HRM.Infrastructure
             return employeeAttendance;
         }
 
-        public async Task<EmployeeAttendance> UpdateHolidaysAsync(int id, EmployeeAttendance employeeAttendance)
+        public async Task<EmployeeAttendance> UpdateEmployeeAttendanceAsync(int id, EmployeeAttendance employeeAttendance)
         {
             var updateEmployeeAttendance = await dbContext.EmployeeAttendance.FirstOrDefaultAsync(x => x.ID == id);
             if (updateEmployeeAttendance is not null)
@@ -59,39 +59,9 @@ namespace HRM.Infrastructure
             return await dbContext.EmployeeAttendance.ToListAsync();
         }
 
-        public Task<EmployeeAttendance> UpdateEmployeeAttendanceAsync(int employeeAttendanceId, EmployeeAttendance employeeAttendance)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<EmployeeAttendance>> GetEmployeeAttendanceByName(string name)
-        {
-            throw new NotImplementedException();
-        }
-
         //public async Task<List<EmployeeAttendance>> GetEmployeeAttendanceByName(string name)
         //{
-        //    return await dbContext.EmployeeAttendance.Where(x => x.HolidayName == name).ToListAsync();
+        //    return await dbContext.EmployeeAttendance.Where(x => x.Employee == name).ToListAsync();
         //}
-
-        public void ConflictMethod()
-        {
-
-        }
-
-        public void ConflictMethod2()
-        {
-
-        public class Demo
-        {
-            public int Id { get; set; }
-            public string Name { get; set; }
-        }
-
-        public class demo2
-        {
-            public int Id { get; set; }
-            public string Name { get; set; }
-        }
     }
 }

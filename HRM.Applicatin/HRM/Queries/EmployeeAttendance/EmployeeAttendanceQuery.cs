@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HRM.Domain;
+using MediatR;
 
-namespace HRM.Applicatin.HRM.Queries.EmployeeAttendance
+namespace HRM.Applicatin
 {
-    internal class EmployeeAttendanceQuery
-    {
-    }
+    public record EmployeeAttendanceQuery() : IRequest<IEnumerable<EmployeeAttendance>>;
+    public record GetEmployeeAttendanceByIdQuery(int id) : IRequest<EmployeeAttendance>;
+
 }

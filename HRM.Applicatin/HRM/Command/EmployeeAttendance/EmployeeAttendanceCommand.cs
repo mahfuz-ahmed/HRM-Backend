@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HRM.Domain;
+using MediatR;
 
-namespace HRM.Applicatin.HRM.Command.EmployeeAttendance
+
+namespace HRM.Applicatin
 {
-    internal class EmployeeAttendanceCommand
-    {
-    }
+    public record AddEmployeeAttendanceCommand(EmployeeAttendance employeeAttendance) : IRequest<EmployeeAttendance>;
+    public record UpdateEmployeeAttendanceCommand(int employeeAttendanceId, EmployeeAttendance employeeAttendance) : IRequest<EmployeeAttendance>;
+    public record DeleteEmployeeAttendanceCommand(int employeeAttendanceId) : IRequest<bool>;
 }

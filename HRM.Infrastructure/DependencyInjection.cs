@@ -27,6 +27,7 @@ namespace HRM.Infrastructure
             services.AddScoped<IPaySlipRepository, PaySlipRepository>();
             services.AddScoped<IStatusRepository, StatusRepository>();
             services.AddScoped<IEmployeeAttendanceRepository, EmployeeAttendanceRepository>();
+            services.AddScoped<IEmployeeDetailsRepository, EmployeeDetailsRepository>();
 
             return services;
         }

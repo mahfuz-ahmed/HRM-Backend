@@ -1,9 +1,7 @@
 ﻿
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace HRM.Domain
 {
-    public class EmployeeDetail
+    public class EmployeeDetails
     {
         public int Id { get; set; }
         public int EmployeeID { get; set; }
