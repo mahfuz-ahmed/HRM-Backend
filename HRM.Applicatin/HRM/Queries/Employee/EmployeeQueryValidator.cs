@@ -4,7 +4,7 @@ using FluentValidation;
 
 namespace HRM.Applicatin
 {
-    public class GetEmployeeByIdQueryValidator : AbstractValidator<GetEmployeeByIdQuery>
+    public class GetEmployeeByIdQueryValidator : AbstractValidator<EmployeeGetDataQuery>
     {
         public GetEmployeeByIdQueryValidator()
         {

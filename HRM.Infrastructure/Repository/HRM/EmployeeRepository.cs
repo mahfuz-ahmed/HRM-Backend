@@ -1,21 +1,44 @@
 ﻿using HRM.Applicatin;
+using HRM.Applicatin.Service;
 using HRM.Domain;
 using Microsoft.EntityFrameworkCore;
+using System.Numerics;
 
 namespace HRM.Infrastructure
 {
-    public class EmployeeRepository(AppDbContext dbContext) : IEmployeeRepository
+    public class EmployeeRepository: IEmployeeRepository
     {
+
+        private readonly AppDbContext _dbContext;
+        private readonly IRedisCacheService _cacheService;
+        //private const string CacheKeyPrefix = "employee_";
+        //private const string AllEmployeeCacheKey = "All_Employee";
+
+
+        public EmployeeRepository(AppDbContext dbContext, IRedisCacheService cacheService)
+        {
+            _dbContext = dbContext;
+            _cacheService = cacheService;
+        }
+
         public async Task<Employee> AddEmployeeAsync(Employee employee)
         {
-            dbContext.Employees.Add(employee);
-            await dbContext.SaveChangesAsync();
+            _dbContext.Employees.Add(employee);
+            await _dbContext.SaveChangesAsync();
+
+            var cacheKey = CacheKeyHelper<Employee>.GetByIdKey(employee.Id);
+            // Cache the newly added doctor
+            await _cacheService.SetAsync(cacheKey, employee, TimeSpan.FromHours(1));
+
+            // Invalidate all doctors cache since data changed
+            await _cacheService.RemoveAsync(cacheKey);
+
             return employee;
         }
 
         public async Task<Employee> UpdateEmployeeAsync(int id, Employee employee)
         {
-            var updateEmployee = await dbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
+            var updateEmployee = await _dbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
 
             if (updateEmployee is not null)
             {
@@ -28,37 +51,58 @@ namespace HRM.Infrastructure
                 updateEmployee.EntryDate = employee.EntryDate;
                 updateEmployee.UpdateUserID = employee.UpdateUserID;
                 updateEmployee.UpdateDate = employee.UpdateDate;
-                await dbContext.SaveChangesAsync();
+                await _dbContext.SaveChangesAsync();
+
                 return updateEmployee;
             }
+            //await _cacheService.SetAsync(CacheKeyPrefix + employee.Id, updateEmployee, TimeSpan.FromHours(1));
+            var getAllCache = CacheKeyHelper<Employee>.GetAllKey();
+            await _cacheService.RemoveAsync(getAllCache);
+
             return employee;
         }
 
         public async Task<bool> DeleteEmployeeAsync(int id)
         {
-            var deleteEmployee = await dbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
+            var deleteEmployee = await _dbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
 
             if (deleteEmployee is not null)
             {
-                dbContext.Employees.Remove(deleteEmployee);
-                return await dbContext.SaveChangesAsync() > 0;
+                _dbContext.Employees.Remove(deleteEmployee);
+                return await _dbContext.SaveChangesAsync() > 0;
             }
             return false;
         }
 
-        public async Task<Employee> GetEmployeeByIdAsync(int id)
+        public async Task<Employee> EmployeeGetDataAsync(int id)
         {
-            return await dbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
+            // Try to get data from cache
+
+            var cacheKey = CacheKeyHelper<Employee>.GetByIdKey(id);
+
+
+            var employeeCache = await _cacheService.GetAsync<Employee>(cacheKey);
+
+            if (employeeCache != null)
+            {
+                return employeeCache;
+            }
+
+            // If not found in cache, get from database
+            var employeeDb  = await _dbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
+            if (employeeDb != null)
+            {
+                // Store in cache for future use
+                await _cacheService.SetAsync(cacheKey, employeeDb, TimeSpan.FromHours(1));
+            }
+            return employeeDb;
+
+            //return await _dbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<IEnumerable<Employee>> GetEmployeesAsync()
+        public async Task<List<Employee>> EmployeeGetAllDataAsync()
         {
-            return await dbContext.Employees.ToListAsync();
-        }
-
-        public async Task<List<Employee>> GetEmployeeByName(string name)
-        {
-            return await dbContext.Employees.Where(x => x.FullName == name).ToListAsync();
+            return await _dbContext.Employees.ToListAsync();
         }
     }
 }

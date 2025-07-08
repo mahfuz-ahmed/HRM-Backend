@@ -45,14 +45,14 @@ namespace HRM.API.Controllers
         [HttpGet("GetAllEmployee")]
         public async Task<IActionResult> GetAllEmployeeAsync()
         {
-            var result = await _sender.Send(new EmployeeQuery());
+            var result = await _sender.Send(new EmployeeGetAllDataQuery());
             return Ok(result);
         }
 
         [HttpGet("GetEmployeeById/{employeeId}")]
         public async Task<IActionResult> GetEmployeeByIdAsync([FromRoute] int employeeId)
         {
-            var result = await _sender.Send(new GetEmployeeByIdQuery(employeeId));
+            var result = await _sender.Send(new EmployeeGetDataQuery(employeeId));
             return Ok(result);
         }
     }

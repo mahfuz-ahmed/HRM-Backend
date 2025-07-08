@@ -8,7 +8,7 @@ namespace HRM.Applicatin
         Task<EmployeeAttendance> UpdateEmployeeAttendanceAsync(int employeeAttendanceId, EmployeeAttendance employeeAttendance);
         Task<bool> DeleteEmployeeAttendanceAsync(int employeeAttendanceId);
         Task<EmployeeAttendance> GetEmployeeAttendanceByIdAsync(int id);
-        Task<List<EmployeeAttendance>> GetEmployeeAttendanceByName(string name);
+        //Task<List<EmployeeAttendance>> GetEmployeeAttendanceByName(string name);
         Task<IEnumerable<EmployeeAttendance>> GetEmployeeAttendanceAsync();
     }
 }

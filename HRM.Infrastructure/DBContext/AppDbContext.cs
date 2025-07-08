@@ -9,7 +9,6 @@ namespace HRM.Infrastructure
         {
         }
         public DbSet<Employee> Employees { get; set; }
-        public DbSet<EmployeeDetail> EmployeeDetails { get; set; }
         public DbSet<Department> Department { get; set; }
         public DbSet<Holidays> Holidays { get; set; }
         public DbSet<Designation> Designation { get; set; }
@@ -21,5 +20,6 @@ namespace HRM.Infrastructure
         public DbSet<PaySlip> PaySlip { get; set; }
         public DbSet<Status> Status { get; set; }
         public DbSet<EmployeeAttendance> EmployeeAttendance { get; set; }
+        public DbSet<EmployeeDetails> EmployeeDetails { get; set; }
     }
 }

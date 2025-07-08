@@ -323,7 +323,7 @@ namespace HRM.Infrastructure.Migrations
                     b.ToTable("EmployeeAttendance");
                 });
 
-            modelBuilder.Entity("HRM.Domain.EmployeeDetail", b =>
+            modelBuilder.Entity("HRM.Domain.EmployeeDetails", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -648,7 +648,7 @@ namespace HRM.Infrastructure.Migrations
                     b.Navigation("Employee");
                 });
 
-            modelBuilder.Entity("HRM.Domain.EmployeeDetail", b =>
+            modelBuilder.Entity("HRM.Domain.EmployeeDetails", b =>
                 {
                     b.HasOne("HRM.Domain.Department", "Department")
                         .WithMany()

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HRM.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class FixCascadeError : Migration
+    public partial class newversioncreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -154,7 +154,7 @@ namespace HRM.Infrastructure.Migrations
                         column: x => x.DepartmentID,
                         principalTable: "Department",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -179,7 +179,7 @@ namespace HRM.Infrastructure.Migrations
                         column: x => x.DepartmentID,
                         principalTable: "Department",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -205,7 +205,7 @@ namespace HRM.Infrastructure.Migrations
                         column: x => x.EmployeeID,
                         principalTable: "Employees",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -231,7 +231,7 @@ namespace HRM.Infrastructure.Migrations
                         column: x => x.EmployeeID,
                         principalTable: "Employees",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -262,13 +262,13 @@ namespace HRM.Infrastructure.Migrations
                         column: x => x.AttendanceStatusID,
                         principalTable: "AttendanceStatus",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_EmployeeAttendance_Employees_EmployeeId",
                         column: x => x.EmployeeId,
                         principalTable: "Employees",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -297,7 +297,7 @@ namespace HRM.Infrastructure.Migrations
                         column: x => x.EmployeeID,
                         principalTable: "Employees",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -332,19 +332,19 @@ namespace HRM.Infrastructure.Migrations
                         column: x => x.DepartmentID,
                         principalTable: "Department",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_EmployeeDetails_Designation_DesignationID",
                         column: x => x.DesignationID,
                         principalTable: "Designation",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_EmployeeDetails_Employees_EmployeeID",
                         column: x => x.EmployeeID,
                         principalTable: "Employees",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
