@@ -11,9 +11,6 @@ namespace HRM.Infrastructure
 
         private readonly AppDbContext _dbContext;
         private readonly IRedisCacheService _cacheService;
-        //private const string CacheKeyPrefix = "employee_";
-        //private const string AllEmployeeCacheKey = "All_Employee";
-
 
         public EmployeeRepository(AppDbContext dbContext, IRedisCacheService cacheService)
         {
@@ -24,14 +21,14 @@ namespace HRM.Infrastructure
         public async Task<Employee> AddEmployeeAsync(Employee employee)
         {
             _dbContext.Employees.Add(employee);
-            await _dbContext.SaveChangesAsync();
+
+            var addedEmployee = await _dbContext.SaveChangesAsync();
 
             var cacheKey = CacheKeyHelper<Employee>.GetByIdKey(employee.Id);
-            // Cache the newly added doctor
+
             await _cacheService.SetAsync(cacheKey, employee, TimeSpan.FromHours(1));
 
-            // Invalidate all doctors cache since data changed
-            await _cacheService.RemoveAsync(cacheKey);
+            await _cacheService.RemoveAsync(CacheKeyHelper<Employee>.GetAllKey());
 
             return employee;
         }
@@ -39,6 +36,7 @@ namespace HRM.Infrastructure
         public async Task<Employee> UpdateEmployeeAsync(int id, Employee employee)
         {
             var updateEmployee = await _dbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
+            var cacheKey = CacheKeyHelper<Employee>.GetByIdKey(id);
 
             if (updateEmployee is not null)
             {
@@ -53,22 +51,25 @@ namespace HRM.Infrastructure
                 updateEmployee.UpdateDate = employee.UpdateDate;
                 await _dbContext.SaveChangesAsync();
 
-                return updateEmployee;
+                await _cacheService.SetAsync(cacheKey, updateEmployee, TimeSpan.FromHours(1));
             }
-            //await _cacheService.SetAsync(CacheKeyPrefix + employee.Id, updateEmployee, TimeSpan.FromHours(1));
-            var getAllCache = CacheKeyHelper<Employee>.GetAllKey();
-            await _cacheService.RemoveAsync(getAllCache);
 
-            return employee;
+            await _cacheService.RemoveAsync(CacheKeyHelper<Employee>.GetAllKey());
+
+            return updateEmployee;
         }
 
         public async Task<bool> DeleteEmployeeAsync(int id)
         {
             var deleteEmployee = await _dbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
+            var cacheKey = CacheKeyHelper<Employee>.GetByIdKey(id);
 
             if (deleteEmployee is not null)
             {
                 _dbContext.Employees.Remove(deleteEmployee);
+                await _cacheService.RemoveAsync(cacheKey);
+                await _cacheService.RemoveAsync(CacheKeyHelper<Employee>.GetAllKey());
+
                 return await _dbContext.SaveChangesAsync() > 0;
             }
             return false;
@@ -76,10 +77,8 @@ namespace HRM.Infrastructure
 
         public async Task<Employee> EmployeeGetDataAsync(int id)
         {
-            // Try to get data from cache
 
             var cacheKey = CacheKeyHelper<Employee>.GetByIdKey(id);
-
 
             var employeeCache = await _cacheService.GetAsync<Employee>(cacheKey);
 
@@ -88,21 +87,33 @@ namespace HRM.Infrastructure
                 return employeeCache;
             }
 
-            // If not found in cache, get from database
             var employeeDb  = await _dbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
+
             if (employeeDb != null)
             {
-                // Store in cache for future use
                 await _cacheService.SetAsync(cacheKey, employeeDb, TimeSpan.FromHours(1));
             }
             return employeeDb;
-
-            //return await _dbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<List<Employee>> EmployeeGetAllDataAsync()
         {
-            return await _dbContext.Employees.ToListAsync();
+
+            var cacheKey = CacheKeyHelper<Employee>.GetAllKey();
+            var getAllFromCache = await _cacheService.GetAsync<List<Employee>>(cacheKey);
+            if(getAllFromCache != null)
+            {
+                return getAllFromCache;
+            }
+
+            var getAllFromDb = await _dbContext.Employees.ToListAsync();
+            if(getAllFromDb != null)
+            {
+            await _cacheService.SetAsync(cacheKey,getAllFromDb,TimeSpan.FromHours(1));
+
+            }
+
+            return getAllFromDb;
         }
     }
 }
