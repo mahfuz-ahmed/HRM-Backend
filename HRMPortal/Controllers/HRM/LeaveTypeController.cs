@@ -2,11 +2,13 @@
 using HRM.Domain;
 using Microsoft.AspNetCore.Mvc;
 using HRM.Applicatin;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HRM.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class LeaveTypeController : Controller
     {
         private readonly ISender _sender;

@@ -1,6 +1,7 @@
 ﻿using HRM.Applicatin;
 using HRM.Domain;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HRM.API.Controllers.HRM
@@ -20,7 +21,7 @@ namespace HRM.API.Controllers.HRM
         public async Task<IActionResult> AddStatusAsync([FromBody] Status status)
         {
             AddStatusCommand command = new AddStatusCommand(status);
-
+            
             var result = await _sender.Send(new AddStatusCommand(status));
 
             return Ok(result);

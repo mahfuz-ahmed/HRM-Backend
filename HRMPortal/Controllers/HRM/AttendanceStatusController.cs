@@ -1,12 +1,14 @@
 ﻿using HRM.Applicatin;
 using HRM.Domain;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HRM.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
 
     public class AttendanceStatusController : ControllerBase
     {

@@ -10,7 +10,6 @@
     <Folder Include="Security\Response\" />
     <Folder Include="Security\Request\" />
     <Folder Include="Authentication\Response\" />
-    <Folder Include="Authentication\Request\" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
-﻿using HRM.Domain;
+﻿using HRM.Applicatin.Common.Exceptions;
+using HRM.Domain;
 using MediatR;
 
 
@@ -21,7 +22,17 @@ namespace HRM.Applicatin
         {
             public async Task<Department> Handle(GetDepartmentByIdQuery query, CancellationToken cancellationToken)
             {
-                return await departmentRepository.GetDepartmentByIdAsync(query.id);
+                
+                
+                var department = await departmentRepository.GetDepartmentByIdAsync(query.id);
+
+                if (department==null)
+                {
+                    throw new NotFoundException("Department Not Found");
+
+                }
+
+                return department;
             }
         }
     }

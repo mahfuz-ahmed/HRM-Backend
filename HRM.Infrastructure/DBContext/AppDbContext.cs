@@ -1,4 +1,5 @@
 ﻿using HRM.Domain;
+using HRM.Domain.Authentication;
 using Microsoft.EntityFrameworkCore;
 
 namespace HRM.Infrastructure
@@ -20,5 +21,7 @@ namespace HRM.Infrastructure
         public DbSet<PaySlip> PaySlip { get; set; }
         public DbSet<Status> Status { get; set; }
         public DbSet<EmployeeAttendance> EmployeeAttendance { get; set; }
+        public DbSet<EmployeeDetails> EmployeeDetails { get; set; }
+        public DbSet<RefreshToken> RefreshToken { get; set; }
     }
 }

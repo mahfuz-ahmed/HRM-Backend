@@ -13,7 +13,7 @@ namespace HRM.Infrastructure
             return employeeAttendance;
         }
 
-        public async Task<EmployeeAttendance> UpdateHolidaysAsync(int id, EmployeeAttendance employeeAttendance)
+        public async Task<EmployeeAttendance> UpdateEmployeeAttendanceAsync(int id, EmployeeAttendance employeeAttendance)
         {
             var updateEmployeeAttendance = await dbContext.EmployeeAttendance.FirstOrDefaultAsync(x => x.ID == id);
             if (updateEmployeeAttendance is not null)
@@ -61,7 +61,7 @@ namespace HRM.Infrastructure
 
         //public async Task<List<EmployeeAttendance>> GetEmployeeAttendanceByName(string name)
         //{
-        //    return await dbContext.EmployeeAttendance.Where(x => x.HolidayName == name).ToListAsync();
+        //    return await dbContext.EmployeeAttendance.Where(x => x.Employee == name).ToListAsync();
         //}
     }
 }

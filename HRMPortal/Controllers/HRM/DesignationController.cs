@@ -2,11 +2,13 @@
 using HRM.Applicatin;
 using HRM.Domain;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HRM.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class DesignationController : ControllerBase
     {
         private readonly ISender _sender;

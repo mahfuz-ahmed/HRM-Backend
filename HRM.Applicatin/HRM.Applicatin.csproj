@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="IRepository\Authentication\" />
     <Folder Include="IRepository\Security\" />
     <Folder Include="Authentication\Command\" />
     <Folder Include="Authentication\Queries\" />

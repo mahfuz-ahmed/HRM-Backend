@@ -1,12 +1,14 @@
 ﻿using HRM.Applicatin;
 using HRM.Domain;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HRM.API.Controllers.HRM
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class HolidaysController : Controller
     {
         private readonly ISender _sender;

@@ -8,19 +8,23 @@ namespace HRM.Domain
 
         public int EmployeeId { get; set; }
 
+        public Employee? Employee { get; set; }
+
         public int LeaveTypeId { get; set; }
+
+        public LeaveType? LeaveType { get; set; }
 
         public DateOnly StartDate { get; set; }
 
         public DateOnly EndDate { get; set; }
 
-        public required string Reason { get; set; } 
+        public required string Reason { get; set; }
+
+        public Status? Status { get; set; }
 
         public int StatusID { get; set; }
 
         public int RemainingLeave { get; set; }
-
-        public int ApprovalId { get; set; }
 
         public DateTime ApprovalDate { get; set; }
 
@@ -28,7 +32,6 @@ namespace HRM.Domain
 
         public bool IsAdmin { get; set; }
 
-        // Audit fields
         public required int EntryUseID { get; set; }
 
         public required DateTime EntryDate { get; set; }
@@ -37,13 +40,5 @@ namespace HRM.Domain
 
         public DateTime? UpdateDate { get; set; }
 
-        [JsonIgnore]
-        public Employee? Employee { get; set; }
-
-        [JsonIgnore]
-        public LeaveType? LeaveType { get; set; }
-
-        [JsonIgnore]
-        public Status? Status { get; set; }
     }
 }

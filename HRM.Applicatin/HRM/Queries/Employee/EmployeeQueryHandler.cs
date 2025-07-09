@@ -1,26 +1,44 @@
-﻿using HRM.Domain;
+﻿using HRM.Applicatin.Common.Exceptions;
+using HRM.Domain;
 using MediatR;
 namespace HRM.Applicatin
 {
-    public class EmployeeQueryHandler : IRequestHandler<EmployeeQuery, IEnumerable<Employee>>
+    public class EmployeeGetDataQueryHandler : IRequestHandler<EmployeeGetDataQuery,Employee>
     {
         public readonly IEmployeeRepository _employeeRepository;
 
-        public EmployeeQueryHandler(IEmployeeRepository employeeRepository)
+        public EmployeeGetDataQueryHandler(IEmployeeRepository employeeRepository)
         {
             _employeeRepository = employeeRepository;
         }
-        public async Task<IEnumerable<Employee>> Handle(EmployeeQuery query, CancellationToken cancellationToken)
+        public async Task<Employee> Handle(EmployeeGetDataQuery query, CancellationToken cancellationToken)
         {
-            return await _employeeRepository.GetEmployeesAsync();
+            var employee = await _employeeRepository.EmployeeGetDataAsync(query.id);
+            if (employee == null) 
+            {
+                throw new NotFoundException("Employee not found");
+            }
+            return employee;
         }
     }
 
-    public class GetDoctorsByIdQueryHandler(IEmployeeRepository employeeRepository) : IRequestHandler<GetEmployeeByIdQuery, Employee>
+    public class EmployeeGetAllDataQueryHandler : IRequestHandler<EmployeeGetAllDataQuery, IEnumerable<Employee>>
     {
-        public async Task<Employee> Handle(GetEmployeeByIdQuery query, CancellationToken cancellationToken)
+        public readonly IEmployeeRepository _employeeRepository;
+
+        public EmployeeGetAllDataQueryHandler(IEmployeeRepository employeeRepository)
         {
-            return await employeeRepository.GetEmployeeByIdAsync(query.id);
+            _employeeRepository = employeeRepository;
+        }
+
+        public async Task<IEnumerable<Employee>> Handle(EmployeeGetAllDataQuery query, CancellationToken cancellationToken)
+        {
+            var employees = await _employeeRepository.EmployeeGetAllDataAsync();
+            if (!employees.Any())
+            {
+                throw new NotFoundException("Employees not found");
+            }
+            return employees;
         }
     }
 }

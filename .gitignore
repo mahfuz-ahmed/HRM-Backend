@@ -1,0 +1,46 @@
+# Ignore user-specific files
+*.user
+*.suo
+
+# Build results
+bin/
+obj/
+*.dll
+*.exe
+
+# Visual Studio files
+.vs/
+*.vscode/
+*.dbmdl
+*.psess
+*.vspx
+*.vsix
+*.cache
+*.pdb
+*.mdb
+
+# ASP.NET Core generated files
+project.lock.json
+project.fragment.lock.json
+
+# NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+*.psmdcp
+*.nupkg.sha512
+*.nupkg.metadata
+
+# Others
+*.log
+*.tlog
+*.log.db
+*.swp
+*~
+
+# Rider IDE
+.idea/
+
+# Node.js (if frontend exists)
+node_modules/
+dist/
