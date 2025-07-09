@@ -1,4 +1,5 @@
-﻿using HRM.Domain;
+﻿using HRM.Applicatin.Common.Exceptions;
+using HRM.Domain;
 using MediatR;
 namespace HRM.Applicatin
 {
@@ -12,7 +13,12 @@ namespace HRM.Applicatin
         }
         public async Task<Employee> Handle(EmployeeGetDataQuery query, CancellationToken cancellationToken)
         {
-            return await _employeeRepository.EmployeeGetDataAsync(query.id);
+            var employee = await _employeeRepository.EmployeeGetDataAsync(query.id);
+            if (employee == null) 
+            {
+                throw new NotFoundException("Employee not found");
+            }
+            return employee;
         }
     }
 
@@ -27,7 +33,12 @@ namespace HRM.Applicatin
 
         public async Task<IEnumerable<Employee>> Handle(EmployeeGetAllDataQuery query, CancellationToken cancellationToken)
         {
-            return await _employeeRepository.EmployeeGetAllDataAsync();
+            var employees = await _employeeRepository.EmployeeGetAllDataAsync();
+            if (!employees.Any())
+            {
+                throw new NotFoundException("Employees not found");
+            }
+            return employees;
         }
     }
 }

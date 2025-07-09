@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repository\Authentication\" />
     <Folder Include="DBContext\" />
     <Folder Include="Repository\Security\" />
   </ItemGroup>

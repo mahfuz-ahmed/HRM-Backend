@@ -2,11 +2,20 @@
 using HRM.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using HRM.Applicatin;
+using HRM.Applicatin.IRepository.Authentication;
+using HRM.Infrastructure.Repository.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using HRM.Domain.Configuration;
+using HRM.AP.Common.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Configure the application
 builder.Configuration["Urls"] = "http://localhost:5000";
+var jwtSettings = builder.Configuration.GetSection("Jwt");
+builder.Services.Configure<JwtSettings>(jwtSettings);
 
 // Add services to the container
 builder.Services.AddControllers();
@@ -23,6 +32,8 @@ builder.Services
     .AddApplication()
     .AddInfrastructure(builder.Configuration);
 
+builder.Services.AddScoped<ITokenService, TokenService>();
+
 // Add CORS
 builder.Services.AddCors(options =>
 {
@@ -33,6 +44,32 @@ builder.Services.AddCors(options =>
                      .AllowAnyHeader();
     });
 });
+
+// Register authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.RequireHttpsMetadata = false; // Set to true in production
+    options.SaveToken = true;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+
+        ValidIssuer = jwtSettings["Issuer"],
+        ValidAudience = jwtSettings["Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"]!))
+    };
+});
+
+builder.Services.AddAuthorization();
+
 
 var app = builder.Build();
 
@@ -49,6 +86,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseRouting();
 app.UseCors();
+app.UseGlobalExceptionMiddleware();
+app.UseAuthentication();
 app.UseAuthorization();
 
 // Map controllers
